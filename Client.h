@@ -1,7 +1,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
-#include <string>
+//#include <string>
 
 namespace supermarket {
 
@@ -9,19 +9,20 @@ class Client
 {
 
  public:
-    Client();
+    Client(int atime);
     bool smart();
-    bool creditCard();
+    bool money();
     int items();
     int value();
     int arrivalTime();
 
  private:
     bool smart_;
-    bool creditCard_;
+    bool money_;
     int items_ {};
     int value_ {};
     int arrivalTime_ {};
+    int exitTime_;
 };
 
 }  /* namespace supermarket */

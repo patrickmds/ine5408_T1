@@ -1,48 +1,27 @@
-#include "Cashier.h"
+//#include "Cashier.h"
 #include "Client.h"
+#include <time.h>
+#include <stdlib.h>
 
 namespace supermarket {
 
 using namespace std;
 
-    Client::Client():
-        smart_{smart()},
-        creditCard_{creditCard()},
-        items_{items()},
-        value_{value()},
-        arrivalTime_{arrivalTime()}
-    {}
-
-    bool smart()
+    Client::Client(int atime):
+        smart_{rand()%2 != 0},
+        arrivalTime_{atime}
     {
-        int randSmartPercentage = rand()%100;
+        srand(time(NULL));
 
-        return randSmartPercentage < 50;
-    }
+        money_ = (rand()%101 > 80)?true:false;
 
-    bool creditCard()
-    {
-        int randCCPercentage = rand()%100;
-
-        return randCCPercentage < 80;
-    }
-
-    int items()
-    {
-        int numItems = rand()%100;
-        if (numItems < 2) {
-            return 2;
+        value_ = 0;
+        for (int i = 0; i < items_; ++i) {
+            value_ += rand()%90 + 1;
         }
-        return numItems;
-    }
 
-    int value()
-    {
-        int totalValue = 0;
-        for (auto i = 0; i < items_; ++i) {
-            totalValue += rand()%90;
-        }
-        return totalValue;
+        items_ = rand()%99 + 2;
+
     }
 
 } /* namespace supermarket */
