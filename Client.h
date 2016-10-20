@@ -9,12 +9,8 @@ class Client
 {
 
  public:
+    Client() = default;
     Client(int atime);
-    bool smart();
-    bool money();
-    int items();
-    int value();
-    int arrivalTime();
 
  private:
     bool smart_;
