@@ -20,9 +20,6 @@ using namespace std;
         for (int i = 0; i < items_; ++i) {
             value_ += rand()%90 + 1;
         }
-
-        items_ = rand()%99 + 2;
-
     }
 
 } /* namespace supermarket */
