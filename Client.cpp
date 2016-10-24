@@ -1,11 +1,9 @@
 //#include "Cashier.h"
 #include "Client.h"
-#include <time.h>
-#include <stdlib.h>
+#include <ctime>
+#include <cstdlib>
 
 namespace supermarket {
-
-using namespace std;
 
     Client::Client(int atime):
         smart_{rand()%2 != 0},

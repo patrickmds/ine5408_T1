@@ -1,28 +1,27 @@
-#include "Cashier.h"
 #include "Supermarket.h"
 
 namespace supermarket {
 
-using namespace std;
-
-    Supermarket::Supermarket(const std::string &name,
+    Supermarket::Supermarket(char name[],
                              int averageClientArrival,
                              int simulationTime):
-        name_{name},
         averageClientArrival_{averageClientArrival},
-        simulationTime_{simulationTime}
-    {}
+        simulationTime_{simulationTime*3600}
+    {
+        strcpy(name_, name);
+    }
 
-    void simulate()
+    void Supermarket::simulate()
     {
         while(simulationTime_ > 0) {
             simulationTime_--;
         }
     }
 
-    void addCashier(const string &name, int efficiency, int salary) {
-        Cashier newCashier{name, efficiency, salary};
-        cashiers_.push(newCashier);
+    void Supermarket::addCashier(char name[], int efficiency, int salary) {
+        auto cashier = Cashier(name, efficiency, salary);
+        //Cashier newCashier{name, efficiency, salary};
+        //cashiers_.push_front(newCashier);
     }
 
 } /* namespace supermarket */
