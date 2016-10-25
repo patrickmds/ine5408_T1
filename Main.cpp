@@ -17,7 +17,7 @@ int main(int argc, char **argv)
     // Cashier infos
     std::string cName;
     int cEffi, cSal;
-    
+
 
     std::ifstream file("file.dat");
     if(!file.is_open()){
@@ -50,11 +50,33 @@ int main(int argc, char **argv)
 
         supermarket::Cashier c(cName, cEffi, cSal);
         //ptrCashier[i] = c;
-	superm.addCashier(c);
+        superm.addCashier(c);
 
     }
 
     superm.printCashiers();
+    int clientArrivalAux = 0;
+    // Simulation start
+    while(superm.currentClock() < superm.totalClock()){
+        // Client In
+        if(clientArrivalAux == smClientArrival){
+            // Create Client
+            clientArrivalAux = 0;
+        }else{
+            ++clientArrivalAux;
+        }
+
+        // Client Out
+        for(int i = 0; i < superm.cashiers_.size(); ++i){
+            superm.cashiers_.at(i).checkClientExit(superm.currentClock());
+        }
+
+
+        superm.currentClock(superm.currentClock()+1);
+    }
+
+
+
 
     return 0;
 }

@@ -12,6 +12,9 @@ class Client
  public:
     Client() = default;
     Client(int atime);
+    void exitTime(int value);
+    int exitTime();
+    int totalSpentMoney();
 
  private:
     bool smart_;

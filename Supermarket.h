@@ -18,10 +18,13 @@ class Supermarket
     void addCashier(std::string name, int efficiency, int salary);
     void addCashier(Cashier c);
     void printCashiers();
+    int currentClock();
+    void currentClock(int value);
+    int totalClock();
+    CircularList<Cashier> cashiers_;
 
 
  private:
-    CircularList<Cashier> cashiers_;
     int simulationTime_;
     int averageClientArrival_;
     std::string name_;

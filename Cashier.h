@@ -26,6 +26,7 @@ class Cashier{
     std::string name_;
     void process(int money);
     int queueTime();
+    void checkClientExit(int time);
     void print();
 };
 

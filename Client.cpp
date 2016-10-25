@@ -16,5 +16,17 @@ namespace supermarket {
             value_ += rand()%90 + 1;
         }
     }
+    
+    void Client::exitTime(int value){
+        exitTime_ = value;
+    }
+
+    int Client::exitTime(){
+        return exitTime_;
+    }
+
+    int Client::totalSpentMoney(){
+        return value_;
+    }
 
 } /* namespace supermarket */

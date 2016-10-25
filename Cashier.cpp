@@ -38,6 +38,17 @@ namespace supermarket {
         return totalTimeInQueue_;
     }
 
+    void Cashier::checkClientExit(int time){
+        if(clients.empty())
+            return;
+        else if(time == clients.front().exitTime()){
+            ++totalClients_;
+            totalIncome_ += clients.front().totalSpentMoney();
+            // TO DO calcular tempo medio da fila
+            clients.dequeue();
+        }
+    }
+
     void Cashier::print(){
 	std::cout << "Name: " << name_ << " - Efficiency: " << efficiency_ << " - Salary: " << salary_ << " \n";
     }

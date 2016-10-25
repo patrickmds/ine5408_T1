@@ -27,4 +27,16 @@ namespace supermarket {
         }
     }
 
+    int Supermarket::currentClock(){
+        return clock_;
+    }
+
+    void Supermarket::currentClock(int value){
+        clock_ = value;
+    }
+
+    int Supermarket::totalClock(){
+        return simulationTime_;
+    }
+
 } /* namespace supermarket */
