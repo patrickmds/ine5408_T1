@@ -2,16 +2,16 @@
 
 namespace supermarket {
 
-    Cashier::Cashier(char name[], int efficiency, int salary)
+    Cashier::Cashier(std::string name, int efficiency, int salary)
     {
-        strcpy(name_, name);
+        name_ = name;
         salary_ = salary;
         efficiency_ = efficiency;
     }
 
     Cashier::Cashier()
     {
-        strcpy(name_, "Nome");
+        name_ = "Nome";
         salary_ = 0;
         efficiency_ = 1;
     }
@@ -39,7 +39,7 @@ namespace supermarket {
     }
 
     void Cashier::print(){
-        printf("Name: %s - Efficiency: %d - Salary: %d\n", name_, efficiency_, salary_);
+	std::cout << "Name: " << name_ << " - Efficiency: " << efficiency_ << " - Salary: " << salary_ << " \n";
     }
 
 } /* namespace supermarket */

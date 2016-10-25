@@ -1,6 +1,8 @@
 #ifndef CASHIER_H
 #define CASHIER_H
 
+#include <iostream>
+#include <string>
 #include <cstring>
 #include "Queue.h"
 #include "Client.h"
@@ -12,7 +14,7 @@ using std::string;
 class Cashier{
 
  public:
-    Cashier(char name[], int efficiency, int salary);
+    Cashier(std::string name, int efficiency, int salary);
     Cashier();
     LinkedQueue<Client> clients;
     int efficiency_;
@@ -21,7 +23,7 @@ class Cashier{
     int clientsInQueue_ {0};
     int totalTimeInQueue_ {0};
     double totalIncome_ {0};
-    char name_[];
+    std::string name_;
     void process(int money);
     int queueTime();
     void print();

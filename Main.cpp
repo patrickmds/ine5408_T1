@@ -3,49 +3,58 @@
 #include <stdexcept>
 #include <fstream>
 #include <cstdlib>
+#include <string>
 #include <cstring>
 #include "Cashier.h"
 #include "Supermarket.h"
 
 int main(int argc, char **argv)
 {
-    char readline[50];
+    std::string readline;
     // Supermarket infos
-    char smName[50];
+    std::string smName;
     int smSimulationTime, smClientArrival, smCashiersNum;
     // Cashier infos
-    char cName[50];
+    std::string cName;
     int cEffi, cSal;
     
 
     std::ifstream file("file.dat");
+    if(!file.is_open()){
+        printf("DEU RUIM\n");
+        return 1;
+    }
 
-    file.getline(readline, 50);
-    strcpy(smName, readline);
-    file.getline(readline, 50);
-    smSimulationTime = atoi(readline);
-    file.getline(readline, 50);
-    smClientArrival = atoi(readline);
-    file.getline(readline, 50);
-    smCashiersNum = atoi(readline);
 
-    printf("Nome: %s, Simu: %d, Client: %d\n", smName, smSimulationTime, smClientArrival);
+    std::getline(file, smName);
+    std::getline(file, readline);
+    smSimulationTime = stoi(readline);
+    std::getline(file, readline);
+    smClientArrival = stoi(readline);
+    std::getline(file, readline);
+    smCashiersNum = stoi(readline);
+
+    std::cout << "Nome supermercado: " << smName << " - Simulacao Tempo: " << smSimulationTime << " - Clientes: " << smClientArrival << " \n";
 
     auto superm = supermarket::Supermarket(smName, smSimulationTime, smClientArrival);
 
+    //supermarket::Cashier *ptrCashier;
+    //ptrCashier = new supermarket::Cashier[smCashiersNum];
+
     for(int i = 0; i < smCashiersNum; ++i){
-        file.getline(readline, 50);
-        strcpy(cName, readline);
-        file.getline(readline, 50);
-        cEffi = atoi(readline);
-        file.getline(readline, 50);
-        cSal = atoi(readline);
-        //superm.addCashier(cName, cEffi, cSal);
-        //auto cashier = supermarket::Cashier(cName, cEffi, cSal);
-        
+        std::getline(file, cName);
+        std::getline(file, readline);
+        cEffi = stoi(readline);
+        std::getline(file, readline);
+        cSal = stoi(readline);
+
+        supermarket::Cashier c(cName, cEffi, cSal);
+        //ptrCashier[i] = c;
+	superm.addCashier(c);
+
     }
 
-    //superm.printCashiers();
+    superm.printCashiers();
 
     return 0;
 }
