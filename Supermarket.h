@@ -16,9 +16,11 @@ class Supermarket
                 int simulationTime);
     void simulate();
     void addCashier(char name[], int efficiency, int salary);
+    void addCashier(Cashier c);
+    void printCashiers();
 
  private:
-    CircularList<Cashier> cashiers_;
+    //CircularList<Cashier> cashiers_;
     int simulationTime_;
     int averageClientArrival_;
     char name_[50];

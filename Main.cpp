@@ -40,8 +40,12 @@ int main(int argc, char **argv)
         cEffi = atoi(readline);
         file.getline(readline, 50);
         cSal = atoi(readline);
-        superm.addCashier(cName, cEffi, cSal);
+        //superm.addCashier(cName, cEffi, cSal);
+        //auto cashier = supermarket::Cashier(cName, cEffi, cSal);
+        
     }
+
+    //superm.printCashiers();
 
     return 0;
 }

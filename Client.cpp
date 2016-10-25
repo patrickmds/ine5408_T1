@@ -1,7 +1,4 @@
-//#include "Cashier.h"
 #include "Client.h"
-#include <ctime>
-#include <cstdlib>
 
 namespace supermarket {
 

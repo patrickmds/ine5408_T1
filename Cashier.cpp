@@ -1,6 +1,4 @@
 #include "Cashier.h"
-#include <string>
-#include <cstring>
 
 namespace supermarket {
 
@@ -13,6 +11,9 @@ namespace supermarket {
 
     Cashier::Cashier()
     {
+        strcpy(name_, "Nome");
+        salary_ = 0;
+        efficiency_ = 1;
     }
 
     void Cashier::process(int money)
@@ -35,6 +36,10 @@ namespace supermarket {
     int Cashier::queueTime()
     {
         return totalTimeInQueue_;
+    }
+
+    void Cashier::print(){
+        printf("Name: %s - Efficiency: %d - Salary: %d\n", name_, efficiency_, salary_);
     }
 
 } /* namespace supermarket */

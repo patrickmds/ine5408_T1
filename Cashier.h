@@ -1,8 +1,8 @@
 #ifndef CASHIER_H
 #define CASHIER_H
 
-#include <string>
-#include "array_queue.h"
+#include <cstring>
+#include "Queue.h"
 #include "Client.h"
 
 namespace supermarket {
@@ -14,7 +14,7 @@ class Cashier{
  public:
     Cashier(char name[], int efficiency, int salary);
     Cashier();
-    ArrayQueue<Client> clients;
+    LinkedQueue<Client> clients;
     int efficiency_;
     int salary_;
     int totalClients_ {0};
@@ -24,6 +24,7 @@ class Cashier{
     char name_[];
     void process(int money);
     int queueTime();
+    void print();
 };
 
 }
