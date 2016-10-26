@@ -13,9 +13,8 @@ class Supermarket
 
  public:
     Supermarket(std::string name,
-                int averageClientArrival,
-                int simulationTime);
-    void addCashier(std::string name, int efficiency, int salary);
+                int simulationTime,
+                int averageClientArrival);
     void addCashier(Cashier c);
     void printCashiers();
     int currentClock();

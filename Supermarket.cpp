@@ -3,18 +3,12 @@
 namespace supermarket {
 
     Supermarket::Supermarket(std::string name,
-                             int averageClientArrival,
-                             int simulationTime):
-        averageClientArrival_{averageClientArrival},
-        simulationTime_{simulationTime*3600}
+                             int simulationTime,
+                             int averageClientArrival):
+        simulationTime_{simulationTime*3600},
+        averageClientArrival_{averageClientArrival}
     {
         name_ = name;
-    }
-
-    void Supermarket::addCashier(std::string name, int efficiency, int salary) {
-        //auto cashier = Cashier(name, efficiency, salary);
-        //Cashier newCashier{name, efficiency, salary};
-        //cashiers_.push_front(cashier);
     }
 
     void Supermarket::addCashier(Cashier c){

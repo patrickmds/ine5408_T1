@@ -3,6 +3,8 @@
 
 #include <ctime>
 #include <cstdlib>
+#include <cstdio>
+#include <sys/time.h>
 
 namespace supermarket {
 
@@ -12,9 +14,12 @@ class Client
  public:
     Client() = default;
     Client(int atime);
+    int arrivalTime();
     void exitTime(int value);
     int exitTime();
     int totalSpentMoney();
+    void computeCashierTime(int eff);
+    int myTimeInCashier();
 
  private:
     bool smart_;
@@ -23,6 +28,7 @@ class Client
     int value_ {};
     int arrivalTime_ {};
     int exitTime_;
+    int particularCashierTime;
 };
 
 }  /* namespace supermarket */

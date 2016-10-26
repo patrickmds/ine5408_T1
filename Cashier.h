@@ -9,26 +9,27 @@
 
 namespace supermarket {
 
-using std::string;
+    using std::string;
 
-class Cashier{
+    class Cashier{
 
- public:
-    Cashier(std::string name, int efficiency, int salary);
-    Cashier();
-    LinkedQueue<Client> clients;
-    int efficiency_;
-    int salary_;
-    int totalClients_ {0};
-    int clientsInQueue_ {0};
-    int totalTimeInQueue_ {0};
-    double totalIncome_ {0};
-    std::string name_;
-    void process(int money);
-    int queueTime();
-    void checkClientExit(int time);
-    void print();
-};
+        public:
+            Cashier(std::string name, int efficiency, int salary);
+            Cashier();
+            LinkedQueue<Client> clients;
+            int efficiency_;
+            int salary_;
+            int totalClients_ {0};
+            int clientsInQueue_ {0};
+            int totalTimeInQueue_ {0};
+            int averageTimeInQueue {0};
+            double totalIncome_ {0};
+            std::string name_;
+            int queueTime();
+            void checkClientExit(int time);
+            void print();
+            void addClient(Client c);
+    };
 
 }
 

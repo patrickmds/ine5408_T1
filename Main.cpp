@@ -56,11 +56,14 @@ int main(int argc, char **argv)
 
     superm.printCashiers();
     int clientArrivalAux = 0;
+    int auxcounter = 0;
     // Simulation start
     while(superm.currentClock() < superm.totalClock()){
         // Client In
-        if(clientArrivalAux == smClientArrival){
+        if(clientArrivalAux == smClientArrival-1){
             // Create Client
+            superm.cashiers_.at(0).addClient(supermarket::Client(superm.currentClock()));
+            ++auxcounter;
             clientArrivalAux = 0;
         }else{
             ++clientArrivalAux;
@@ -75,8 +78,8 @@ int main(int argc, char **argv)
         superm.currentClock(superm.currentClock()+1);
     }
 
-
-
+    std::cout << "Total clients atendidos: " << superm.cashiers_.at(0).totalClients_ << "\n";
+    std::cout << "Total clients recebidos: " << auxcounter << "\n";
 
     return 0;
 }
