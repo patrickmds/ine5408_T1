@@ -65,4 +65,16 @@ namespace supermarket {
         return particularCashierTime;
     }
 
+    bool Client::smart(){
+        return smart_;
+    }
+
+    int Client::items(){
+        return items_;
+    }
+
+    int Client::value(){
+        return value_;
+    }
+
 } /* namespace supermarket */

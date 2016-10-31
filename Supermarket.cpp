@@ -16,6 +16,7 @@ namespace supermarket {
     }
 
     void Supermarket::printCashiers(){
+        printf("Caixas:\n");
         for(int i = 0; i < cashiers_.size(); ++i){
             cashiers_.at(i).print();
         }

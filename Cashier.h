@@ -29,6 +29,7 @@ namespace supermarket {
             void checkClientExit(int time);
             void print();
             void addClient(Client c);
+            int qtdProdutos();
     };
 
 }

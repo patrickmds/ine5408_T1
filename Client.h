@@ -20,6 +20,9 @@ class Client
     int totalSpentMoney();
     void computeCashierTime(int eff);
     int myTimeInCashier();
+    bool smart();
+    int items();
+    int value();
 
  private:
     bool smart_;
